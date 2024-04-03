@@ -1,11 +1,11 @@
 import Story from "./Story";
 
-const Stories = ({stories}) => {
+const Stories = ({ stories }) => {
   return (
     <div class="site-wrap">
-      { stories.map( (story, index) => {
+      {stories.map((story, index) => (
         <Story key={index} story={story} />
-      } )}
+      ))}
     </div>
   );
 };
