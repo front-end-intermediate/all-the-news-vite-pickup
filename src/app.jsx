@@ -10,7 +10,17 @@ const NYT_API = "PGQuh0auTqHC6HEx4gADBhT2yLCdXYbN";
 export function App() {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [section, setSection] = useState("food");
+  const [section, setSection] = useState("");
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const hash = url.hash.slice(1);
+    if (hash !== "undefined") {
+      setSection(hash);
+    } else {
+      setSection("arts");
+    }
+  }, []);
 
   useEffect(() => {
     if (!localStorage.getItem(section)) {
